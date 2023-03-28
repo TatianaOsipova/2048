@@ -1,7 +1,6 @@
-import { Grid } from "./grid";
+import { Grid } from "./grid.js";
 
-const gameBoard = document.qetElementById("game-board");
+const gameBoard = document.getElementById("game-board");
 
 const grid = new Grid(gameBoard);
 
-console.log(hello);
