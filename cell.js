@@ -6,4 +6,11 @@ export class Cell {
         this.x = x;
         this.y = y;
     }
+
+    linkTile(tile) {
+        tile.setXY(this.x, this.y);
+        this.linkedTile = tile;
+    }
+
+    
 }
