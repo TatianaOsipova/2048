@@ -12,5 +12,8 @@ export class Cell {
         this.linkedTile = tile;
     }
 
-    
+    isEmpty () {
+        return !this.linkedTile;
+    }
+
 }
