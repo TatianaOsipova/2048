@@ -1,5 +1,9 @@
-import { Grid } from "./grid.js";
-import { Tile } from "./tile.js";
+import {
+    Grid
+} from "./grid.js";
+import {
+    Tile
+} from "./tile.js";
 
 const gameBoard = document.getElementById("game-board");
 
@@ -9,30 +13,30 @@ grid.getRandomEmptyCell().linkTile(new Tile(gameBoard));
 setupInputOnce();
 
 function setupInputOnce() {
-    window.addEventListener("keydown", handleInput, {once: true});
+    window.addEventListener("keydown", handleInput, {
+        once: true
+    });
 }
 
 function handleInput(event) {
     switch (event.key) {
         case "ArrowUp":
             moveUP;
-        break;
+            break;
 
         case "ArrowDown":
-        break;
+            break;
 
         case "ArrowLeft":
-        break;
+            break;
 
         case "ArrowRight":
-        break;
+            break;
 
         default:
             setupInputOnce();
             return;
-        
     }
-
     setupInputOnce();
 }
 
@@ -42,6 +46,10 @@ function moveUP() {
 
 function slideTiles(groupedCells) {
     groupedCells.forEach(group => slideTilesInGroup(group));
+
+    grid.cells.forEach(cell => {
+        cell.hasTileForMerge() && cell.mergeTiles();
+    });
 }
 
 function slideTilesInGroup(group) {
@@ -54,7 +62,7 @@ function slideTilesInGroup(group) {
 
         let targetCell;
         let j = i - 1;
-        while(j >= 0 && group[j].canAccept(cellWithTile.linkedTile)) {
+        while (j >= 0 && group[j].canAccept(cellWithTile.linkedTile)) {
             targetCell = group[j];
             j--;
         }
@@ -72,6 +80,3 @@ function slideTilesInGroup(group) {
         cellWithTile.unlinkTile();
     }
 }
-
-
-

@@ -20,4 +20,8 @@ export class Tile {
         this.tileElement.style.setProperty("--x", x);
         this.tileElement.style.setProperty("--y", y);
     } 
+
+    removeFromDOM() {
+        this.tileElement.remove();
+    }
 }
