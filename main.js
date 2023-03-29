@@ -21,10 +21,11 @@ function setupInputOnce() {
 function handleInput(event) {
     switch (event.key) {
         case "ArrowUp":
-            moveUP;
+            moveUp();
             break;
 
         case "ArrowDown":
+            moveDown();
             break;
 
         case "ArrowLeft":
@@ -40,8 +41,12 @@ function handleInput(event) {
     setupInputOnce();
 }
 
-function moveUP() {
+function moveUp() {
     slideTiles(grid.cellsGroupedByColumn);
+}
+
+function moveDown() {
+    slideTiles(grid.cellsGroupedByReversedColumn);
 }
 
 function slideTiles(groupedCells) {
