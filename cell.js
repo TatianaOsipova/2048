@@ -15,5 +15,4 @@ export class Cell {
     isEmpty () {
         return !this.linkedTile;
     }
-
 }
