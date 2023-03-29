@@ -58,6 +58,18 @@ function slideTilesInGroup(group) {
             targetCell = group[j];
             j--;
         }
+
+        if (!targetCell) {
+            continue;
+        }
+
+        if (targetCell.isEmpty()) {
+            targetCell.linkTile(cellWithTile.linkedTile);
+        } else {
+            targetCell.linkTileForMerge(cellWithTile.linkedTile);
+        }
+
+        cellWithTile.unlinkTile();
     }
 }
 
